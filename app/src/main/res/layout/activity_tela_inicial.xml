@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".TelaInicialActivity">
+        <include layout="@layout/toolbar"/>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                        android:id="@+id/mensagemInicial"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+                <Button
+                        android:id="@+id/botaoSair"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/action_logout"/>
+        </LinearLayout>
+</LinearLayout>
 
-</android.support.constraint.ConstraintLayout>

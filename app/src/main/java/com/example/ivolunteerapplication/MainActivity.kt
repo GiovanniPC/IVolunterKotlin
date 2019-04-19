@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         val campoSenha = findViewById<EditText>(R.id.editText2)
         val valorUsuario = campoUsuario.text.toString()
         val valorSenha = campoSenha.text.toString()
-        val username: String = "aluno"
-        val password: String = "impacta"
+        val username = "aluno"
+        val password = "impacta"
 
         if (valorSenha == password  && valorUsuario == username){
             val intent = Intent(this, TelaInicialActivity::class.java)

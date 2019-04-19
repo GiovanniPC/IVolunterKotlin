@@ -4,4 +4,8 @@
     <string name="action_atualizar">Atualizar</string>
     <string name="action_config">Configurações</string>
     <string name="action_logout">Sair</string>
+    <string name="login">Login</string>
+    <string name="Nickname">Nickname</string>
+    <string name="Password">Password</string>
+    <string name="facalogin">Faça seu Login</string>
 </resources>
