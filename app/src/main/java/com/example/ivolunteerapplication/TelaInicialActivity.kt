@@ -30,14 +30,21 @@ class TelaInicialActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         val id = item?.itemId
         if(id == R.id.action_buscar){
-            Toast.makeText(this, "Clicou Buscar", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Clicou Buscar!", Toast.LENGTH_LONG).show()
         }
         if(id == R.id.action_atualizar){
-            Toast.makeText(this, "Clicou Atualizar", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Entrou em About!", Toast.LENGTH_LONG).show()
+            setContentView(R.layout.about)
+
+            val toolbar = findViewById<Toolbar>(R.id.toolbar)
+            setSupportActionBar(toolbar)
+
+            supportActionBar?.title="About"
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
         if(id == R.id.action_logout){
 
-            Toast.makeText(this, "Clicou Sair", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Você saiu!", Toast.LENGTH_LONG).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 

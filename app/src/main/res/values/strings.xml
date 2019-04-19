@@ -8,4 +8,12 @@
     <string name="Nickname">Nickname</string>
     <string name="Password">Password</string>
     <string name="facalogin">Faça seu Login</string>
+    <string name="logo">TwoRedPandas</string>
+
+
+    <string name="ABOUT">
+          Nós do TwoRedPandas, queremos montar o melhor sistema para ajudar ONGs e Vóluntarios.
+        Ajudando ambos a encontrarem pessoas para ajudar e pessoas para doar, sendo material ou ajuda.
+        Estamos aqui para facilitar a vida de todos, em poder ajudar ainda mais a humanidade.
+    </string>
 </resources>

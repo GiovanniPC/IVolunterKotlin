@@ -27,8 +27,7 @@ class MainActivity : AppCompatActivity() {
         if (valorSenha == password  && valorUsuario == username){
             val intent = Intent(this, TelaInicialActivity::class.java)
             startActivity(intent)
-        }
-        else{
+        } else {
         Toast.makeText(this, "Nome de usuario ou senha inválidos", Toast.LENGTH_LONG).show()
     }
     }
