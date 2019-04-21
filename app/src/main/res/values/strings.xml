@@ -16,4 +16,11 @@
         Ajudando ambos a encontrarem pessoas para ajudar e pessoas para doar, sendo material ou ajuda.
         Estamos aqui para facilitar a vida de todos, em poder ajudar ainda mais a humanidade.
     </string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="sobre">Sobre nós</string>
+    <string name="Home">Pagina Inicial</string>
+    <string name="ong">OGNs</string>
+    <string name="voluntario">Voluntario</string>
 </resources>
