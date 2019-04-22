@@ -54,7 +54,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     }
 
     fun taskOngs() {
-        ongs = OngService.getOngs(context)
+        this.ongs = OngService.getOngs(context)
 
         recyclerOngs?.adapter = OngAdapter(ongs) {onClickOng(it)}
     }
