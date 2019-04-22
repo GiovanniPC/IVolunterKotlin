@@ -13,19 +13,14 @@ class OngActivity : DebugActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ong)
 
-
         ong = intent.getSerializableExtra("ong") as Ong
-
 
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-
         supportActionBar?.title = ong?.nome
 
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
 
         var texto = findViewById<TextView>(R.id.nomeOng)
         texto.text = ong?.nome

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.*
 
 class MainActivity : DebugActivity() {
+
     private val context: Context get() = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

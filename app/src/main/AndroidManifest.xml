@@ -20,8 +20,9 @@
                 </intent-filter>
             </activity>
             <activity android:name=".DebugActivity" />
-            <activity android:name=".TelaInicialActivity"
-                      android:theme="@style/AppTheme.Toolbar">
+            <activity
+                    android:name=".TelaInicialActivity"
+                    android:theme="@style/AppTheme.Toolbar">
             </activity>
             <activity android:name=".OngActivity"
                       android:theme="@style/AppTheme.Toolbar"

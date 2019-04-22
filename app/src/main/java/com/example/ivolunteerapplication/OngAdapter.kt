@@ -16,7 +16,6 @@ class OngAdapter (
     val onClick: (Ong) -> Unit):
     RecyclerView.Adapter<OngAdapter.OngsViewHolder>() {
 
-
     class OngsViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val cardNome: TextView
         val cardImg : ImageView
@@ -33,10 +32,7 @@ class OngAdapter (
 
     }
 
-
-
     override fun getItemCount() = this.ongs.size
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int): OngsViewHolder {
@@ -47,12 +43,10 @@ class OngAdapter (
         return holder
     }
 
-
     override fun onBindViewHolder(holder: OngsViewHolder, position: Int) {
         val context = holder.itemView.context
 
         val ong = ongs[position]
-
 
         holder.cardNome.text = ong.nome
         holder.cardProgress.visibility = View.VISIBLE
