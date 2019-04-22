@@ -24,9 +24,10 @@
                     android:name=".TelaInicialActivity"
                     android:theme="@style/AppTheme.Toolbar">
             </activity>
-            <activity android:name=".OngActivity"
-                      android:theme="@style/AppTheme.Toolbar"
-                      android:parentActivityName=".TelaInicialActivity">
+            <activity
+                    android:name=".OngActivity"
+                    android:theme="@style/AppTheme.Toolbar"
+                    android:parentActivityName=".TelaInicialActivity">
             </activity>
     </application>
 

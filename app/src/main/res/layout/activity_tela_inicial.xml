@@ -7,36 +7,40 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context=".TelaInicialActivity"
-                android:layout_marginTop="22dp">
+                android:layout_marginTop="22dp"
+                android:orientation="vertical">
                 <include layout="@layout/toolbar"/>
 
-                <ScrollView
+            <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerOng"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:cacheColorHint="@android:color/transparent"
+                        android:clipToPadding="false"
+                        android:divider="@null"
+                        android:dividerHeight="0dp"
+                        android:listSelector="@android:color/transparent"
+                        android:scrollbarStyle="outsideOverlay"
+                        android:scrollbars="vertical"
+                        >
+                </android.support.v7.widget.RecyclerView>
 
-
-                        <android.support.v7.widget.RecyclerView
-                                android:id="@+id/recyclerOngs"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:cacheColorHint="@android:color/transparent"
-                                android:clipToPadding="false"
-                                android:divider="@null"
-                                android:dividerHeight="0dp"
-                                android:listSelector="@android:color/transparent"
-                                android:scrollbarStyle="outsideOverlay"
-                                android:scrollbars="vertical">
-                        </android.support.v7.widget.RecyclerView>
-
-                </ScrollView>
+            </ScrollView>
         </LinearLayout>
+
+
+
 
         <android.support.design.widget.NavigationView
                 android:id="@+id/menu_lateral"
@@ -45,9 +49,6 @@
                 android:layout_gravity="start"
                 android:fitsSystemWindows="true"
                 app:headerLayout="@layout/menu_lateral_cabecalho"
-                app:menu="@menu/menu_lateral">
-
-
-        </android.support.design.widget.NavigationView>
+                app:menu="@menu/menu_lateral"/>
 
 </android.support.v4.widget.DrawerLayout>

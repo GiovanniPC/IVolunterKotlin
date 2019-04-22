@@ -18,7 +18,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     private val context: Context get() = this
     private var ongs = listOf<Ong>()
-    var recyclerOngs: RecyclerView? = null
+    var recyclerOng: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +40,10 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
         configuraMenuLateral()
 
-        recyclerOngs = findViewById<RecyclerView>(R.id.recyclerOngs)
-        recyclerOngs?.layoutManager = LinearLayoutManager(context)
-        recyclerOngs?.itemAnimator = DefaultItemAnimator()
-        recyclerOngs?.setHasFixedSize(true)
+        recyclerOng = findViewById<RecyclerView>(R.id.recyclerOng)
+        recyclerOng?.layoutManager = LinearLayoutManager(context)
+        recyclerOng?.itemAnimator = DefaultItemAnimator()
+        recyclerOng?.setHasFixedSize(true)
 
     }
 
@@ -56,7 +56,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     fun taskOngs() {
         this.ongs = OngService.getOngs(context)
 
-        recyclerOngs?.adapter = OngAdapter(ongs) {onClickOng(it)}
+        recyclerOng?.adapter = OngAdapter(ongs) {onClickOng(it)}
     }
 
     fun onClickOng(ong: Ong) {
@@ -85,25 +85,13 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
                 Toast.makeText(this, "Clicou Home", Toast.LENGTH_SHORT).show()
                 setContentView(R.layout.activity_tela_inicial)
 
-                val args:Bundle? = intent.extras
-
-                val nome = args?.getString("nome")
-
-                Toast.makeText(context, "Parâmetro: $nome", Toast.LENGTH_LONG).show()
-
                 var toolbar = findViewById<Toolbar>(R.id.toolbar)
                 setSupportActionBar(toolbar)
 
-                supportActionBar?.title="IVolunteer APP"
-
+                supportActionBar?.title="ONGs"
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
                 configuraMenuLateral()
-
-                recyclerOngs = findViewById<RecyclerView>(R.id.recyclerOngs)
-                recyclerOngs?.layoutManager = LinearLayoutManager(context)
-                recyclerOngs?.itemAnimator = DefaultItemAnimator()
-                recyclerOngs?.setHasFixedSize(true)
             }
             R.id.nav_ong -> {
                 Toast.makeText(this, "Clicou ONGs", Toast.LENGTH_SHORT).show()
