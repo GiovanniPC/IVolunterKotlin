@@ -1,44 +1,72 @@
 package com.example.ivolunteerapplication
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import android.content.Context
+import android.support.v7.widget.*
 
 
-class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private val context: Context get() = this
+    private var ongs = listOf<Ong>()
+    var recyclerOngs: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         supportActionBar?.title="IVolunteer APP"
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         configuraMenuLateral()
+
+        recyclerOngs = findViewById<RecyclerView>(R.id.recyclerOngs)
+        recyclerOngs?.layoutManager = LinearLayoutManager(context)
+        recyclerOngs?.itemAnimator = DefaultItemAnimator()
+        recyclerOngs?.setHasFixedSize(true)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        taskOngs()
+    }
+
+    fun taskOngs() {
+
+        this.ongs = OngService.getOngs(context)
+
+        recyclerOngs?.adapter = OngAdapter(ongs) {onClickOng(it)}
+    }
+
+    fun onClickOng(ong: Ong) {
+        Toast.makeText(context, "Clicou ong ${ong.nome}", Toast.LENGTH_SHORT).show()
+        val intent = Intent(context, OngActivity::class.java)
+        intent.putExtra("ong", ong)
+        startActivity(intent)
     }
 
     private fun configuraMenuLateral () {
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        val menuLateral = findViewById<DrawerLayout>(R.id.layourMenuLateral)
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        var menuLateral = findViewById<DrawerLayout>(R.id.layourMenuLateral)
 
-        val toogle = ActionBarDrawerToggle(
-            this,
-            menuLateral,
-            toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close)
+        var toogle = ActionBarDrawerToggle(this, menuLateral, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+
         menuLateral.addDrawerListener(toogle)
         toogle.syncState()
 
@@ -52,19 +80,25 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
                 Toast.makeText(this, "Clicou Home", Toast.LENGTH_SHORT).show()
                 setContentView(R.layout.activity_tela_inicial)
 
-                val toolbar = findViewById<Toolbar>(R.id.toolbar)
+                var toolbar = findViewById<Toolbar>(R.id.toolbar)
                 setSupportActionBar(toolbar)
 
-                supportActionBar?.title="Pagina Inicial"
+                supportActionBar?.title="IVolunteer APP"
+
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
                 configuraMenuLateral()
+
+                recyclerOngs = findViewById<RecyclerView>(R.id.recyclerOngs)
+                recyclerOngs?.layoutManager = LinearLayoutManager(context)
+                recyclerOngs?.itemAnimator = DefaultItemAnimator()
+                recyclerOngs?.setHasFixedSize(true)
             }
             R.id.nav_ong -> {
                 Toast.makeText(this, "Clicou ONGs", Toast.LENGTH_SHORT).show()
                 setContentView(R.layout.about)
 
-                val toolbar = findViewById<Toolbar>(R.id.toolbar)
+                var toolbar = findViewById<Toolbar>(R.id.toolbar)
                 setSupportActionBar(toolbar)
 
                 supportActionBar?.title="ONGs"
@@ -88,7 +122,7 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
                 Toast.makeText(this, "Clicou Sobre", Toast.LENGTH_SHORT).show()
                 setContentView(R.layout.about)
 
-                val toolbar = findViewById<Toolbar>(R.id.toolbar)
+                var toolbar = findViewById<Toolbar>(R.id.toolbar)
                 setSupportActionBar(toolbar)
 
                 supportActionBar?.title="Sobre"
