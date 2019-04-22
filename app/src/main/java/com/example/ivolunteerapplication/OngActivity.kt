@@ -1,13 +1,12 @@
 package com.example.ivolunteerapplication
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 
-class OngActivity : AppCompatActivity() {
+class OngActivity : DebugActivity() {
 
     var ong: Ong? = null
     override fun onCreate(savedInstanceState: Bundle?) {

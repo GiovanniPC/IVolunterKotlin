@@ -24,6 +24,12 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
 
+        val args:Bundle? = intent.extras
+
+        val nome = args?.getString("nome")
+
+        Toast.makeText(context, "Parâmetro: $nome", Toast.LENGTH_LONG).show()
+
 
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -49,7 +55,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     fun taskOngs() {
 
-        this.ongs = OngService.getOngs(context)
+        ongs = OngService.getOngs(context)
 
         recyclerOngs?.adapter = OngAdapter(ongs) {onClickOng(it)}
     }
@@ -79,6 +85,15 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             R.id.nav_home -> {
                 Toast.makeText(this, "Clicou Home", Toast.LENGTH_SHORT).show()
                 setContentView(R.layout.activity_tela_inicial)
+
+                val args:Bundle? = intent.extras
+
+                val nome = args?.getString("nome")
+
+                val numero = intent.getIntExtra("nome",0)
+
+                Toast.makeText(context, "Parâmetro: $nome", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Numero: $numero", Toast.LENGTH_LONG).show()
 
                 var toolbar = findViewById<Toolbar>(R.id.toolbar)
                 setSupportActionBar(toolbar)

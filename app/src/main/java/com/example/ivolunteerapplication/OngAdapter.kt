@@ -13,7 +13,8 @@ import com.squareup.picasso.Picasso
 
 class OngAdapter (
     val ongs: List<Ong>,
-    val onClick: (Ong) -> Unit): RecyclerView.Adapter<OngAdapter.OngsViewHolder>() {
+    val onClick: (Ong) -> Unit):
+    RecyclerView.Adapter<OngAdapter.OngsViewHolder>() {
 
 
     class OngsViewHolder(view: View): RecyclerView.ViewHolder(view) {
@@ -37,7 +38,8 @@ class OngAdapter (
     override fun getItemCount() = this.ongs.size
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OngsViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup, viewType: Int): OngsViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_ong, parent, false)
 
