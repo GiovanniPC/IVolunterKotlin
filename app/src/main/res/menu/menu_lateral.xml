@@ -15,7 +15,7 @@
               android:title="@string/sobre"
               android:icon="@drawable/ic_adicionar_black" />
         <item android:id="@+id/action_logout"
-              android:icon="@drawable/ic_configuracoes_white"
+              android:icon="@drawable/icons1"
               android:title="@string/action_logout" />
     </group>
 </menu>

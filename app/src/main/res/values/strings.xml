@@ -21,6 +21,8 @@
     <string name="navigation_drawer_close">Close</string>
     <string name="sobre">Sobre nós</string>
     <string name="Home">Pagina Inicial</string>
-    <string name="ong">OGNs</string>
+    <string name="ong">ONGs</string>
     <string name="voluntario">Voluntario</string>
+    <string name="ongpagina">Aqui ficaram todas as ONGs cadatradas em nosso sistema em formato de cards/listas</string>
+    <string name="volunteerpagina">Aqui ficaram todos os Voluntarios cadatrados em nosso sistema em formato de cards/listas</string>
 </resources>

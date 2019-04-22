@@ -1,16 +1,16 @@
 package com.example.ivolunteerapplication
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.*
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import android.content.Context
-import android.support.v7.widget.*
 
 
 
@@ -54,7 +54,6 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     }
 
     fun taskOngs() {
-
         ongs = OngService.getOngs(context)
 
         recyclerOngs?.adapter = OngAdapter(ongs) {onClickOng(it)}
@@ -90,10 +89,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
                 val nome = args?.getString("nome")
 
-                val numero = intent.getIntExtra("nome",0)
-
                 Toast.makeText(context, "Parâmetro: $nome", Toast.LENGTH_LONG).show()
-                Toast.makeText(context, "Numero: $numero", Toast.LENGTH_LONG).show()
 
                 var toolbar = findViewById<Toolbar>(R.id.toolbar)
                 setSupportActionBar(toolbar)
@@ -111,7 +107,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             }
             R.id.nav_ong -> {
                 Toast.makeText(this, "Clicou ONGs", Toast.LENGTH_SHORT).show()
-                setContentView(R.layout.about)
+                setContentView(R.layout.ongs)
 
                 var toolbar = findViewById<Toolbar>(R.id.toolbar)
                 setSupportActionBar(toolbar)
@@ -123,7 +119,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             }
             R.id.nav_voluntario -> {
                 Toast.makeText(this, "Clicou Voluntarios", Toast.LENGTH_SHORT).show()
-                setContentView(R.layout.about)
+                setContentView(R.layout.volunteer)
 
                 val toolbar = findViewById<Toolbar>(R.id.toolbar)
                 setSupportActionBar(toolbar)
@@ -169,13 +165,6 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         }
         if(id == R.id.action_atualizar){
             Toast.makeText(this, "Entrou em About!", Toast.LENGTH_LONG).show()
-            setContentView(R.layout.about)
-
-            val toolbar = findViewById<Toolbar>(R.id.toolbar)
-            setSupportActionBar(toolbar)
-
-            supportActionBar?.title="About"
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
         if(id == R.id.action_logout){
 
