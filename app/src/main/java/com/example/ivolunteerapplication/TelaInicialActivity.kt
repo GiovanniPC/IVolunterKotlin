@@ -83,51 +83,21 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         when (item.itemId) {
             R.id.nav_home -> {
                 Toast.makeText(this, "Clicou Home", Toast.LENGTH_SHORT).show()
-                setContentView(R.layout.activity_tela_inicial)
+                startActivity(Intent(context, TelaInicialActivity::class.java))
 
-                var toolbar = findViewById<Toolbar>(R.id.toolbar)
-                setSupportActionBar(toolbar)
-
-                supportActionBar?.title="ONGs"
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-                configuraMenuLateral()
             }
             R.id.nav_ong -> {
                 Toast.makeText(this, "Clicou ONGs", Toast.LENGTH_SHORT).show()
-                setContentView(R.layout.ongs)
-
-                var toolbar = findViewById<Toolbar>(R.id.toolbar)
-                setSupportActionBar(toolbar)
-
-                supportActionBar?.title="ONGs"
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-                configuraMenuLateral()
+                startActivity(Intent(context, OActivity::class.java))
             }
             R.id.nav_voluntario -> {
                 Toast.makeText(this, "Clicou Voluntarios", Toast.LENGTH_SHORT).show()
-                setContentView(R.layout.volunteer)
+                startActivity(Intent(context, VActivity::class.java))
 
-                val toolbar = findViewById<Toolbar>(R.id.toolbar)
-                setSupportActionBar(toolbar)
-
-                supportActionBar?.title="Voluntarios"
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-                configuraMenuLateral()
             }
             R.id.nav_about -> {
                 Toast.makeText(this, "Clicou Sobre", Toast.LENGTH_SHORT).show()
-                setContentView(R.layout.about)
-
-                var toolbar = findViewById<Toolbar>(R.id.toolbar)
-                setSupportActionBar(toolbar)
-
-                supportActionBar?.title="Sobre"
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-                configuraMenuLateral()
+                startActivity(Intent(context, SobreActivity::class.java))
                 }
             R.id.action_logout -> {
                 Toast.makeText(this, "Você saiu!", Toast.LENGTH_LONG).show()
