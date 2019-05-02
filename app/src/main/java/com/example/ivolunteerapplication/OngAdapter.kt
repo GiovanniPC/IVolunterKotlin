@@ -19,13 +19,12 @@ class OngAdapter (
     class OngsViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val cardNome: TextView
         val cardImg : ImageView
-        var cardProgress: ProgressBar
+
         var cardView: CardView
 
         init {
             cardNome = view.findViewById<TextView>(R.id.cardNome)
             cardImg = view.findViewById<ImageView>(R.id.cardImg)
-            cardProgress = view.findViewById<ProgressBar>(R.id.cardProgress)
             cardView = view.findViewById<CardView>(R.id.card_ongs)
 
         }
@@ -48,19 +47,7 @@ class OngAdapter (
 
         val ong = ongs[position]
 
-        holder.cardNome.text = ong.nome
-        holder.cardProgress.visibility = View.VISIBLE
-
-        Picasso.with(context).load(ong.foto).fit().into(holder.cardImg,
-            object: com.squareup.picasso.Callback{
-                override fun onSuccess() {
-                    holder.cardProgress.visibility = View.GONE
-                }
-
-                override fun onError() {
-                    holder.cardProgress.visibility = View.GONE
-                }
-            })
+        holder.cardNome.text = ong.name
 
         holder.itemView.setOnClickListener {onClick(ong)}
     }

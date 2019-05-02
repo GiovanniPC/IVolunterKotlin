@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 
+
 class MainActivity : DebugActivity() {
+
 
     private val context: Context get() = this
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,7 @@ class MainActivity : DebugActivity() {
         val valorSenha = campoSenha.text.toString()
         val username = "aluno"
         val password = "impacta"
+
 
         if (valorSenha == password  && valorUsuario == username){
             val intent = Intent(context, TelaInicialActivity::class.java)

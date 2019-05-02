@@ -19,6 +19,8 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     private val context: Context get() = this
     private var ongs = listOf<Ong>()
     var recyclerOng: RecyclerView? = null
+    private var REQUEST_CADASTRO = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,13 +56,16 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     }
 
     fun taskOngs() {
-        this.ongs = OngService.getOngs(context)
-
-        recyclerOng?.adapter = OngAdapter(ongs) {onClickOng(it)}
+        Thread {
+            this.ongs = OngService.getOngs(context)
+            runOnUiThread {
+                recyclerOng?.adapter = OngAdapter(ongs) { onClickOng(it) }
+            }
+        }.start()
     }
 
     fun onClickOng(ong: Ong) {
-        Toast.makeText(context, "Clicou ong ${ong.nome}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Clicou ong ${ong.name}", Toast.LENGTH_SHORT).show()
         val intent = Intent(context, OngActivity::class.java)
         intent.putExtra("ong", ong)
         startActivity(intent)
@@ -124,13 +129,23 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         if(id == R.id.action_atualizar){
             Toast.makeText(this, "Entrou em About!", Toast.LENGTH_LONG).show()
         }
+        if(id == R.id.action_adicionar) {
+            val intent = Intent(context, OngCadastroActivity::class.java)
+            startActivityForResult(intent, REQUEST_CADASTRO)
+        }
         if(id == R.id.action_logout){
 
             Toast.makeText(this, "Você saiu!", Toast.LENGTH_LONG).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_CADASTRO ) {
+            // atualizar lista de disciplinas
+            taskOngs()
+        }
     }
 }

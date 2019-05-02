@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".OngCadastroActivity">
+
+    <EditText
+            android:id="@+id/nomeOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="textPersonName"/>
+    <EditText
+            android:id="@+id/usernameOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName" />
+    <EditText
+            android:id="@+id/passwordOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Senha"
+            android:inputType="textPassword" />
+    <EditText
+            android:id="@+id/emailOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email: alguma@coisa.com.br"
+            android:inputType="textEmailAddress" />
+    <EditText
+            android:id="@+id/cnpjOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="CNPJ da Ong:pegar um cnpj valido com gerador"
+            android:inputType="textPersonName" />
+    <EditText
+            android:id="@+id/criadorOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Fundador da Ong"
+            android:inputType="textPersonName" />
+    <EditText
+            android:id="@+id/dataaberturaOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="01/01/2000"
+            android:inputType="text" />
+    <EditText
+            android:id="@+id/phoneOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="11999998888"
+            android:inputType="phone" />
+
+    <EditText
+            android:id="@+id/addressOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Endereço da Ong"
+            android:inputType="textPersonName" />
+    <EditText
+            android:id="@+id/cityOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Cidade da Ong"
+            android:inputType="textPersonName"/>
+
+    <EditText
+            android:id="@+id/stateOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Estado da Ong"
+            android:inputType="textPersonName"/>
+
+    <EditText
+            android:id="@+id/descricaOng"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:ems="10"
+            android:hint="Descrição da Ong"
+            android:inputType="textMultiLine" />
+
+    <Button
+            android:id="@+id/salvarOng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="salvar" />
+
+</LinearLayout>

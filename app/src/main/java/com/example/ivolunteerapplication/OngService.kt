@@ -1,22 +1,34 @@
 package com.example.ivolunteerapplication
 
 import android.content.Context
+import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 object OngService {
 
+
+    val host = "https://ivolunteer-rest-api.herokuapp.com"
+    val TAG = "ivolunteer-rest-api"
+
     fun getOngs(context: Context): List<Ong> {
-        val ongs = mutableListOf<Ong>()
 
-            for (i in 1..10) {
-                val o = Ong()
-                o.nome = "Ong $i"
-                o.ementa = "Ementa Ong $i"
-                o.criador = "Criador da Ong $i"
-                o.foto = "http://www.rosapenido.com.br/wp-content/uploads/2018/09/Quais-s%C3%A3o-os-tipos-de-ONGs-no-Brasil-rosa-penido.jpg"
-                ongs.add(o)
-            }
-
-        return ongs
+        if (AndroidUtils.isInternetDisponivel(context)) {
+            val url = "$host/saude"
+            val json = HttpHelper.get(url)
+            return parserJson(json)
+        } else {
+            return ArrayList<Ong>()
+        }
     }
 
+    fun save(ong: Ong): Response {
+        val json = HttpHelper.post("$host/signup/ong", ong.toJson())
+        return parserJson<Response>(json)
+    }
+
+    inline fun <reified T> parserJson(json: String): T {
+        val type = object : TypeToken<T>(){}.type
+        return Gson().fromJson<T>(json, type)
+    }
 }

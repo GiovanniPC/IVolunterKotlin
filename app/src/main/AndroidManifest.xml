@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -41,6 +43,10 @@
                 android:name=".SobreActivity"
                 android:theme="@style/AppTheme.Toolbar">
         </activity>
+        <activity
+            android:name=".OngCadastroActivity"
+            android:theme="@style/AppTheme.Toolbar">
+    </activity>
     </application>
 
 </manifest>

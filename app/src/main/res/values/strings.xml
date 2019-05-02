@@ -25,4 +25,9 @@
     <string name="voluntario">Voluntario</string>
     <string name="ongpagina">Aqui ficaram todas as ONGs cadatradas em nosso sistema em formato de cards/listas</string>
     <string name="volunteerpagina">Aqui ficaram todos os Voluntarios cadatrados em nosso sistema em formato de cards/listas</string>
+
+    <string name="nomevo">Nome:</string>
+    <string name="criador">Fundador:</string>
+    <string name="descricao">Descrição:</string>
+    <string name="action_adicionar">Adicionar Ong</string>
 </resources>

@@ -18,18 +18,18 @@ class OngActivity : DebugActivity() {
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        supportActionBar?.title = ong?.nome
+        supportActionBar?.title = ong?.name
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         var texto = findViewById<TextView>(R.id.nomeOng)
-        texto.text = ong?.nome
-        var imagem = findViewById<ImageView>(R.id.imagemOng)
-        Picasso.with(this).load(ong?.foto).fit().into(imagem,
-            object: com.squareup.picasso.Callback{
-                override fun onSuccess() {}
+        texto.text = ong?.name
 
-                override fun onError() { }
-            })
+        var texto1 = findViewById<TextView>(R.id.responsavelOng)
+        texto1.text = ong?.responsavel
+
+        var texto2 = findViewById<TextView>(R.id.descricaoOng)
+        texto2.text = ong?.descricao
+
     }
 }
