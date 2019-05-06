@@ -30,14 +30,6 @@ object HttpHelper {
         return getJson(request)
     }
 
-    // DELETE
-    fun delete(url: String): String {
-        Log.d(TAG, "HttpHelper.delete: $url")
-        val request = Request.Builder().url(url).delete().build()
-        return getJson(request)
-    }
-
-
     // Lê resposta em formato JSON
     private fun getJson(request: Request?): String {
         val response = client.newCall(request).execute()

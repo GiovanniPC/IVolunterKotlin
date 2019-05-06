@@ -1,7 +1,6 @@
 package com.example.ivolunteerapplication
 
 import android.content.Context
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

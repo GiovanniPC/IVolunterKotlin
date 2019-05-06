@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
-import com.squareup.picasso.Picasso
 
 
 class OngAdapter (
@@ -26,7 +24,6 @@ class OngAdapter (
             cardNome = view.findViewById<TextView>(R.id.cardNome)
             cardImg = view.findViewById<ImageView>(R.id.cardImg)
             cardView = view.findViewById<CardView>(R.id.card_ongs)
-
         }
 
     }

@@ -89,7 +89,6 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             R.id.nav_home -> {
                 Toast.makeText(this, "Clicou Home", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(context, TelaInicialActivity::class.java))
-
             }
             R.id.nav_ong -> {
                 Toast.makeText(this, "Clicou ONGs", Toast.LENGTH_SHORT).show()
@@ -98,7 +97,6 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             R.id.nav_voluntario -> {
                 Toast.makeText(this, "Clicou Voluntarios", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(context, VActivity::class.java))
-
             }
             R.id.nav_about -> {
                 Toast.makeText(this, "Clicou Sobre", Toast.LENGTH_SHORT).show()
@@ -134,7 +132,6 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             startActivityForResult(intent, REQUEST_CADASTRO)
         }
         if(id == R.id.action_logout){
-
             Toast.makeText(this, "Você saiu!", Toast.LENGTH_LONG).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -144,7 +141,6 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_CADASTRO ) {
-            // atualizar lista de disciplinas
             taskOngs()
         }
     }

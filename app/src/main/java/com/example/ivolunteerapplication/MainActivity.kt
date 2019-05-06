@@ -8,7 +8,6 @@ import android.widget.*
 
 class MainActivity : DebugActivity() {
 
-
     private val context: Context get() = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,29 +19,39 @@ class MainActivity : DebugActivity() {
     }
 
     fun onClickLogin(){
+
+        val ong = OngLogin()
         val campoUsuario = findViewById<EditText>(R.id.editText)
         val campoSenha = findViewById<EditText>(R.id.editText2)
-        val valorUsuario = campoUsuario.text.toString()
-        val valorSenha = campoSenha.text.toString()
-        val username = "aluno"
-        val password = "impacta"
 
+        ong.username = campoUsuario.text.toString()
+        ong.password = campoSenha.text.toString()
+        taskLogin(ong)
 
-        if (valorSenha == password  && valorUsuario == username){
-            val intent = Intent(context, TelaInicialActivity::class.java)
-            val params = Bundle()
-            params.putString("nome", "Voluntario/Ong")
-            intent.putExtras(params)
-
-            startActivityForResult(intent, 1)
-        } else {
-        Toast.makeText(this, "Nome de usuario ou senha inválidos", Toast.LENGTH_LONG).show()
-        }
     }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 1) {
-            val result = data?.getStringExtra("result")
-            Toast.makeText(context, "$result", Toast.LENGTH_LONG).show()
-        }
+
+    private fun taskLogin(ong: OngLogin) {
+
+        Thread {
+            val token = LoginService.login(ong)
+            runOnUiThread {
+
+                if (token.contains("error")){
+
+                    Toast.makeText(this, "Usuario ou senhas invalidos.", Toast.LENGTH_SHORT).show()
+
+                } else {
+
+                    val intent = Intent(context, TelaInicialActivity::class.java)
+                    val params = Bundle()
+                    params.putString("nome", token)
+                    intent.putExtras(params)
+
+                    startActivityForResult(intent, 1)
+                }
+            }
+        }.start()
+
     }
+
 }
