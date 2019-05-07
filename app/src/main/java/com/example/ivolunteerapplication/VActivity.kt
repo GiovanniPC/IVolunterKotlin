@@ -17,6 +17,7 @@ import android.widget.Toast
 class VActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val context: Context get() = this
+    private var REQUEST_CADASTRO = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,8 +96,13 @@ class VActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListen
         if(id == R.id.action_atualizar){
             Toast.makeText(this, "Entrou em About!", Toast.LENGTH_LONG).show()
         }
-        if(id == R.id.action_logout){
+        if(id == R.id.action_adicionar) {
+            Toast.makeText(this, "Entrou em Cadastrar ONG!", Toast.LENGTH_LONG).show()
 
+            val intent = Intent(context, OngCadastroActivity::class.java)
+            startActivityForResult(intent, REQUEST_CADASTRO)
+        }
+        if(id == R.id.action_logout){
             Toast.makeText(this, "Você saiu!", Toast.LENGTH_LONG).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

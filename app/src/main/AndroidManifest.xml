@@ -46,7 +46,7 @@
         <activity
             android:name=".OngCadastroActivity"
             android:theme="@style/AppTheme.Toolbar">
-    </activity>
+        </activity>
     </application>
 
 </manifest>
