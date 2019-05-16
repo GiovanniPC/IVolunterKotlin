@@ -91,7 +91,9 @@ class SobreActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedLi
             Toast.makeText(this, "Clicou Buscar!", Toast.LENGTH_LONG).show()
         }
         if(id == R.id.action_atualizar){
-            Toast.makeText(this, "Entrou em About!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Entrou na Home!", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
         if(id == R.id.action_adicionar) {
             Toast.makeText(this, "Entrou em Cadastrar ONG!", Toast.LENGTH_LONG).show()

@@ -125,7 +125,9 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             Toast.makeText(this, "Clicou Buscar!", Toast.LENGTH_LONG).show()
         }
         if(id == R.id.action_atualizar){
-            Toast.makeText(this, "Entrou em About!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Entrou na Home!", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
         if(id == R.id.action_adicionar) {
             val intent = Intent(context, OngCadastroActivity::class.java)

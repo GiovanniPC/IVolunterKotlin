@@ -8,60 +8,57 @@
 
     <ImageView
             android:id="@+id/imageView"
-            android:layout_width="184dp"
+            android:layout_width="wrap_content"
             android:layout_height="183dp"
-            android:layout_marginEnd="114dp"
-            android:layout_marginStart="114dp"
-            android:layout_marginTop="40dp"
             android:src="@drawable/logo"
             android:contentDescription="@string/logo"/>
 
     <TextView
             android:text="@string/facalogin"
-            android:layout_width="226dp"
-            android:layout_height="53dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textColor="#000"
             android:id="@+id/textView3"
-            android:layout_marginTop="38dp"
-            android:layout_marginEnd="94dp"
-            android:layout_marginStart="94dp"
-            android:layout_marginBottom="30dp"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
 
     <EditText
-            android:layout_width="300dp"
-            android:layout_height="49dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editText"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:hint="@string/Nickname"/>
 
     <EditText
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/editText2"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:hint="@string/Password"/>
-
+    <CheckBox
+            android:id="@+id/checkLembrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="Lembrar login"
+    />
     <Button
             android:text="@string/login"
-            android:layout_width="191dp"
+            android:layout_height="wrap_content"
+            android:layout_width="220dp"
             android:background="#A94523"
             android:textColor="#fff"
-            android:layout_height="60dp"
             android:id="@+id/button"
-            android:layout_marginStart="111dp"
-            android:layout_marginEnd="109dp"
-            android:layout_marginBottom="84dp"
-            android:layout_marginTop="70dp"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
 
 </LinearLayout>

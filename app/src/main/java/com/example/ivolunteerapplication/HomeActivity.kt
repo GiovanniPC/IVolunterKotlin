@@ -14,20 +14,20 @@ import android.widget.Toast
 
 
 
-class OActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
+class HomeActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val context: Context get() = this
     private var REQUEST_CADASTRO = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.ongs)
+        setContentView(R.layout.home)
 
 
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        supportActionBar?.title="Ongs"
+        supportActionBar?.title="Home"
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -55,17 +55,14 @@ class OActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListen
             R.id.nav_home -> {
                 Toast.makeText(this, "Clicou Home", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(context, TelaInicialActivity::class.java))
-
             }
             R.id.nav_ong -> {
                 Toast.makeText(this, "Clicou ONGs", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(context, OActivity::class.java))
-
             }
             R.id.nav_voluntario -> {
                 Toast.makeText(this, "Clicou Voluntarios", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(context, VActivity::class.java))
-
             }
             R.id.nav_about -> {
                 Toast.makeText(this, "Clicou Sobre", Toast.LENGTH_SHORT).show()
@@ -105,6 +102,7 @@ class OActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListen
             startActivityForResult(intent, REQUEST_CADASTRO)
         }
         if(id == R.id.action_logout){
+
             Toast.makeText(this, "Você saiu!", Toast.LENGTH_LONG).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
