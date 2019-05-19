@@ -1,12 +1,27 @@
 package com.example.ivolunteerapplication
 
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 import java.io.Serializable
 import com.google.gson.GsonBuilder
 
+val dao = DatabaseManager.getongDAO()
+var newid = dao.bigId() + 1
+var id = ""
 
+fun testOn() : String{
+    if (AndroidUtils.isInternetDisponivel(IVoApplication.getInstance().applicationContext)) {
+        return id
+    } else {
+        return newid
+    }
+}
+
+@Entity(tableName = "ong")
 class Ong : Serializable {
 
-    var id= ""
+    @PrimaryKey
+    var id = testOn()
     var name = ""
     var username = ""
     var email = ""

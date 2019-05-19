@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : DebugActivity() {
@@ -14,7 +15,17 @@ class MainActivity : DebugActivity() {
         setContentView(R.layout.activity_main)
 
         val botaoLogin = findViewById<Button>(R.id.button)
-        botaoLogin.setOnClickListener {onClickLogin() }
+        botaoLogin.setOnClickListener { onClickLogin() }
+
+        var lembrar = Prefs.getBoolean("lembrar")
+        if (lembrar) {
+            var lembrarNome  = Prefs.getString("lembrarNome")
+            var lembrarSenha  = Prefs.getString("lembrarSenha")
+            editText.setText(lembrarNome)
+            editText2.setText(lembrarSenha)
+            checkBoxLogin.isChecked = lembrar
+
+        }
 
     }
 
@@ -26,31 +37,45 @@ class MainActivity : DebugActivity() {
 
         ong.username = campoUsuario.text.toString()
         ong.password = campoSenha.text.toString()
+
+        Prefs.setBoolean("lembrar", checkBoxLogin.isChecked)
+        if (checkBoxLogin.isChecked) {
+            Prefs.setString("lembrarNome", ong.username)
+            Prefs.setString("lembrarSenha", ong.password)
+        } else {
+            Prefs.setString("lembrarNome", "")
+            Prefs.setString("lembrarSenha", "")
+        }
+
         taskLogin(ong)
 
     }
 
     private fun taskLogin(ong: OngLogin) {
 
-        Thread {
-            val token = LoginService.login(ong)
-            runOnUiThread {
+        val intent = Intent(context, TelaInicialActivity::class.java)
 
-                if (token.contains("error")){
+        startActivityForResult(intent, 1)
 
-                    Toast.makeText(this, "Usuario ou senhas invalidos.", Toast.LENGTH_SHORT).show()
-
-                } else {
-
-                    val intent = Intent(context, TelaInicialActivity::class.java)
-                    val params = Bundle()
-                    params.putString("nome", token)
-                    intent.putExtras(params)
-
-                    startActivityForResult(intent, 1)
-                }
-            }
-        }.start()
+//        Thread {
+//            val token = LoginService.login(ong)
+//            runOnUiThread {
+//
+//                if (token.contains("error")){
+//
+//                    Toast.makeText(this, "Usuario ou senhas invalidos.", Toast.LENGTH_SHORT).show()
+//
+//                } else {
+//
+//                    val intent = Intent(context, TelaInicialActivity::class.java)
+//                    val params = Bundle()
+//                    params.putString("nome", token)
+//                    intent.putExtras(params)
+//
+//                    startActivityForResult(intent, 1)
+//                }
+//            }
+//        }.start()
 
     }
 

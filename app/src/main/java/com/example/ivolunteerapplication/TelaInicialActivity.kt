@@ -60,8 +60,18 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             this.ongs = OngService.getOngs(context)
             runOnUiThread {
                 recyclerOng?.adapter = OngAdapter(ongs) { onClickOng(it) }
+                enviaNotificacao(this.ongs.get(0))
             }
         }.start()
+    }
+
+    fun enviaNotificacao(ong: Ong) {
+        // Intent para abrir tela quando clicar na notificação
+        val intent = Intent(this, OngActivity::class.java)
+        // parâmetros extras
+        intent.putExtra("ong", ong)
+        // Disparar notificação
+        NotificationUtil.create(this, 1, intent, "IVolunteer", "Você acessou a Ong ${ong.name}")
     }
 
     fun onClickOng(ong: Ong) {

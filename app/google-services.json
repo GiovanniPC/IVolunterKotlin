@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "657389507822",
+    "firebase_url": "https://ivolunteerapp-7f048.firebaseio.com",
+    "project_id": "ivolunteerapp-7f048",
+    "storage_bucket": "ivolunteerapp-7f048.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657389507822:android:49b5807059935023",
+        "android_client_info": {
+          "package_name": "com.example.ivolunteerapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657389507822-66jsqot34s5g83t96t6q0jabfbhcsr7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYi5Xi0gNGMBJSXuWqOrJBmmgbyiE2nkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657389507822-66jsqot34s5g83t96t6q0jabfbhcsr7k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
