@@ -66,12 +66,9 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     }
 
     fun enviaNotificacao(ong: Ong) {
-        // Intent para abrir tela quando clicar na notificação
         val intent = Intent(this, OngActivity::class.java)
-        // parâmetros extras
         intent.putExtra("ong", ong)
-        // Disparar notificação
-        NotificationUtil.create(this, 1, intent, "IVolunteer", "Você acessou a Ong ${ong.name}")
+        NotificationUtil.create(this, 1, intent, "IVolunteer", "Você logou com sucesso!")
     }
 
     fun onClickOng(ong: Ong) {

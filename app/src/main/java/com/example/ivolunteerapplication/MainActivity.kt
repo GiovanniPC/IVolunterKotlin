@@ -53,30 +53,36 @@ class MainActivity : DebugActivity() {
 
     private fun taskLogin(ong: OngLogin) {
 
-        val intent = Intent(context, TelaInicialActivity::class.java)
+//        val intent = Intent(context, TelaInicialActivity::class.java)
+//
+//        startActivityForResult(intent, 1)
 
-        startActivityForResult(intent, 1)
+        if (AndroidUtils.isInternetDisponivel(IVoApplication.getInstance().applicationContext)) {
 
-//        Thread {
-//            val token = LoginService.login(ong)
-//            runOnUiThread {
-//
-//                if (token.contains("error")){
-//
-//                    Toast.makeText(this, "Usuario ou senhas invalidos.", Toast.LENGTH_SHORT).show()
-//
-//                } else {
-//
-//                    val intent = Intent(context, TelaInicialActivity::class.java)
-//                    val params = Bundle()
-//                    params.putString("nome", token)
-//                    intent.putExtras(params)
-//
-//                    startActivityForResult(intent, 1)
-//                }
-//            }
-//        }.start()
 
+            Thread {
+                val token = LoginService.login(ong)
+                runOnUiThread {
+
+                    if (token.contains("error")){
+
+                        Toast.makeText(this, "Usuario ou senhas invalidos.", Toast.LENGTH_SHORT).show()
+
+                    } else {
+
+                        val intent = Intent(context, TelaInicialActivity::class.java)
+                        val params = Bundle()
+                        params.putString("nome", token)
+                        intent.putExtras(params)
+
+                        startActivityForResult(intent, 1)
+                    }
+                }
+            }.start()
+        } else {
+                val intent = Intent(context, TelaInicialActivity::class.java)
+                startActivityForResult(intent, 1)
+        }
     }
 
 }

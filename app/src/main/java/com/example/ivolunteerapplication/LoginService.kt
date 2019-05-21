@@ -10,4 +10,15 @@ object LoginService {
 
     }
 
+//    fun saveOffline(ong: Ong) : Boolean {
+//        val dao = DatabaseManager.getongDAO()
+//
+//        if (! existeOng(ong)) {
+//            dao.insert(ong)
+//        }
+//
+//        return true
+//
+//    }
+
 }
